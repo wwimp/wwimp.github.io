@@ -101,10 +101,9 @@ theme: landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: ''
+
 deploy:
   type: git
-  repo: <https://github.com/wwimp/wwimp.github.io> #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  repo: https://github.com/wwimp/wwimp.github.io #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
   branch: [master]
-  message: [message]
+  message: [111]
