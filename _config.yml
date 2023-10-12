@@ -1,4 +1,5 @@
-theme: jekyll-theme-minimal
+# theme: jekyll-theme-minimal
+theme: butterfly
 title: wwimp
 subtitle: wwimp
 description: 小王
