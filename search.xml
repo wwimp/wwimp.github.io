@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>bootstrap5部分笔记</title>
+      <link href="/2023/11/01/bootstrap5%E9%83%A8%E5%88%86%E7%AC%94%E8%AE%B0/"/>
+      <url>/2023/11/01/bootstrap5%E9%83%A8%E5%88%86%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://v5.bootcss.com/docs/5.3/utilities/display/#hiding-elements">bootstrap5中的hiding-elements</a></p><p>display 属性<br>利用我们提供的 display 工具类可以快速改变组件的 display 属性等，并且支持响应式布局。还包括对一些常见值的支持，以及打印时用来控制 display 属性的一些额外工具类。</p><p>On this page<br>工作原理<br>Notation<br>示例<br>隐藏页面元素<br>针对打印机的 display 工具类<br>Sass<br>工具类 API<br>工作原理<br>利用我们所提供的支持响应式布局的 display 工具类来改变 display 属性。我们专门在 display 属性的所有可能取值当中选定了一个子集来实现我们 display 工具类。 将这些工具类做不同的组合从而可以实现你所需要的各种效果。</p><p>Notation<br>如果 display 属性相关的工具类名称中间没有与断点相关的缩写（即 sm、md、lg、xl 等）的话，则能够影响所有 断点，即 xs 到 xl。这样设定是因为所有这种工具类都对 min-width: 0; 及以上尺寸起作用，因此不受媒体查询的限制。然而，其余针对断点的工具类就会包含断点的缩写。</p><p>如下所示，这些类遵循以下命名格式：</p><p>.d-{value} for xs<br>.d-{breakpoint}-{value} for sm, md, lg, xl, and xxl.<br>其中，value 的取值可以是下面列出的任意一个：</p><p>none<br>inline<br>inline-block<br>block<br>grid<br>table<br>table-cell<br>table-row<br>flex<br>inline-flex<br>The display values can be altered by changing the display values defined in $utilities and recompiling the SCSS.</p><p>媒体查询所覆盖的屏幕宽度包括从给定的断点开始并延伸到 更大 的屏幕尺寸。例如，.d-lg-none 将在 lg、xl 和 xxl 屏幕尺寸下设置 display: none; 属性。</p><p>示例<br>d-inline d-inline<br>HTML</p><div class="d-inline p-2 text-bg-primary">d-inline</div><div class="d-inline p-2 text-bg-dark">d-inline</div>d-blockd-blockHTML<p><span class="d-block p-2 text-bg-primary">d-block</span><br><span class="d-block p-2 text-bg-dark">d-block</span><br>隐藏页面元素<br>为了更快地采用移动设备优先的方式进行开发，请使用支持响应式布局的 display 工具类来针对设备显示和隐藏页面元素。避免为同一个网站创建多个完全不同的版本，而是应该根据屏幕尺寸隐藏某些页面元素。</p><p>如需隐藏某个页面元素，只需使用 .d-none 类即可，还可以使用支持响应式布局的 .d-{sm,md,lg,xl,xxl}-none 类。</p><p>如需在给定的屏幕尺寸范围内显示某个页面元素的话，可以将一个 .d-<em>-none 类和一个 .d-</em>-* 类联合使用，例如，.d-none .d-md-block .d-xl-none .d-xxl-none 的效果是：在中等尺寸（medium）和大尺寸（large）的屏幕上显示指定的页面元素，其余尺寸的屏幕上全部隐藏该页面元素。</p><p>Screen sizeClass<br>Hidden on all.d-none<br>Hidden only on xs.d-none .d-sm-block<br>Hidden only on sm.d-sm-none .d-md-block<br>Hidden only on md.d-md-none .d-lg-block<br>Hidden only on lg.d-lg-none .d-xl-block<br>Hidden only on xl.d-xl-none .d-xxl-block<br>Hidden only on xxl.d-xxl-none<br>Visible on all.d-block<br>Visible only on xs.d-block .d-sm-none<br>Visible only on sm.d-none .d-sm-block .d-md-none<br>Visible only on md.d-none .d-md-block .d-lg-none<br>Visible only on lg.d-none .d-lg-block .d-xl-none<br>Visible only on xl.d-none .d-xl-block .d-xxl-none<br>Visible only on xxl.d-none .d-xxl-block<br>在小于 lg 尺寸的屏幕上隐藏<br>HTML</p><div class="d-lg-none">在 lg 及更大尺寸的屏幕上隐藏</div><div class="d-none d-lg-block">在小于 lg 尺寸的屏幕上隐藏</div>针对打印机的 display 工具类 使用针对打印机的 display 工具类来改变页面元素在打印时的 display 值。与支持响应式布局的 .d-* 工具类一样包含了对相同 display 取值的支持。<p>.d-print-none<br>.d-print-inline<br>.d-print-inline-block<br>.d-print-block<br>.d-print-grid<br>.d-print-table<br>.d-print-table-row<br>.d-print-table-cell<br>.d-print-flex<br>.d-print-inline-flex<br>针对打印机和针对屏幕的两组 display 工具类可以一起使用。</p><p>仅在屏幕上显示（仅在打印时隐藏）<br>在屏幕尺寸小于或等于 lg 时隐藏，但打印时永远都会显示<br>HTML</p><div class="d-print-none">仅在屏幕上显示（仅在打印时隐藏）</div><div class="d-none d-print-block">仅在打印时显示（仅在屏幕上隐藏）</div><div class="d-none d-lg-block d-print-block">在屏幕尺寸小于或等于 lg 时隐藏，但打印时永远都会显示</div>Sass 工具类 API display 工具类在 scss/_utilities.scss 文件中的 工具类 API 中定义的。了解如何使用工具类 API。<pre><code>&quot;display&quot;: (  responsive: true,  print: true,  property: display,  class: d,  values: inline inline-block block grid table table-row table-cell flex inline-flex none),</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Bootstrap5 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Bootstrap5 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>model合集</title>
       <link href="/2023/10/26/model%E5%90%88%E9%9B%86/"/>
       <url>/2023/10/26/model%E5%90%88%E9%9B%86/</url>
